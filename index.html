@@ -159,6 +159,8 @@
             border: 1px solid var(--border-color);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
+            display: flex;
+            flex-direction: column;
         }
 
         .card:hover {
@@ -179,11 +181,16 @@
             display: block;
         }
 
+        .card p {
+            flex-grow: 1;
+        }
+
         .badge-group {
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
             margin-bottom: 1.5rem;
+            margin-top: auto;
         }
 
         .badge {
@@ -245,6 +252,22 @@
             background: rgba(255, 255, 255, 0.05);
             border-color: var(--text-secondary);
             box-shadow: none;
+        }
+
+        .project-link {
+            font-size: 0.85rem;
+            color: var(--secondary-glow);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            margin-top: 0.5rem;
+            transition: color 0.2s;
+        }
+
+        .project-link:hover {
+            color: white;
         }
 
         .document-box-layout {
@@ -331,6 +354,41 @@
                 <span class="badge">Flutter</span>
                 <span class="badge">DBMS</span>
                 <span class="badge">SQL</span>
+            </div>
+        </section>
+
+        <!-- Featured Projects Section -->
+        <section id="projects">
+            <h2>Featured Projects</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>FSL Learning Website</h3>
+                    <span class="card-meta"><strong>Corpus Platform with CNN & LSTM Models</strong></span>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.25rem;">
+                        Designed a Filipino Sign Language (FSL) learning environment utilizing a community-driven FSL corpus combined with CNN and LSTM deep learning architectures for sign recognition.
+                    </p>
+                    <div class="badge-group">
+                        <span class="badge">Python</span>
+                        <span class="badge">CNN & LSTM</span>
+                        <span class="badge">Deep Learning</span>
+                        <span class="badge">Web Development</span>
+                    </div>
+                    <a href="https://github.com/hakunapatata012" class="project-link" target="_blank">View on GitHub &rarr;</a>
+                </div>
+                <div class="card">
+                    <h3>Adaptive Health Training App</h3>
+                    <span class="card-meta"><strong>Cardiovascular Training & Health Risk Mitigation</strong></span>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.25rem;">
+                        Developed an adaptive machine learning-powered mobile application designed to offer personalized cardiovascular training regimens and lower cardiovascular disease risks.
+                    </p>
+                    <div class="badge-group">
+                        <span class="badge">Kotlin</span>
+                        <span class="badge">Android Studio</span>
+                        <span class="badge">Machine Learning</span>
+                        <span class="badge">XML Layouts</span>
+                    </div>
+                    <a href="cardio-training-app.apk" class="btn" style="padding: 0.5rem 1.2rem; font-size: 0.85rem; width: 100%; margin-top: auto;" download>📲 Download Android APK</a>
+                </div>
             </div>
         </section>
 

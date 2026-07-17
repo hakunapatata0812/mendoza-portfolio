@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jerome Isaac D. Mendoza | Portfolio</title>
+    <style>
+        :root {
+            --primary: #1e293b;
+            --secondary: #3b82f6;
+            --text: #334155;
+            --light: #f8fafc;
+            --accent: #2563eb;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            color: var(--text);
+            background-color: var(--light);
+            line-height: 1.6;
+        }
+
+        header {
+            background: var(--primary);
+            color: white;
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info a {
+            color: var(--secondary);
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        section {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            color: var(--primary);
+            border-bottom: 2px solid var(--secondary);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: var(--light);
+            padding: 1.5rem;
+            border-radius: 6px;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .card h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .badge {
+            display: inline-block;
+            background: #e2e8f0;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            margin: 0.2rem;
+        }
+
+        /* Call to Action Buttons for Documents */
+        .doc-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+
+        .btn:hover {
+            background: var(--accent);
+        }
+
+        .btn-alt {
+            background: #64748b;
+        }
+
+        .btn-alt:hover {
+            background: #475569;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Jerome Isaac D. Mendoza</h1>
+        <p>Computer Science Student | Software & Mobile Developer</p>
+        <div class="contact-info">
+            <a href="mailto:jidrmendozaa@gmail.com">jidrmendozaa@gmail.com</a> | 
+            <span>+63930-859-9775</span> | 
+            <span>Los Baños, Laguna</span>
+        </div>
+        
+        <!-- Quick Access to Documents -->
+        <div class="doc-buttons">
+            <a href="resume.pdf" class="btn" target="_blank">📄 View Resume</a>
+            <a href="narrative-report.pdf" class="btn btn-alt" target="_blank">📘 View Narrative Report</a>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <section id="objective">
+            <h2>Objective</h2>
+            <p>Dedicated Computer Science student seeking an internship opportunity to apply technical knowledge in software development, systems design, and emerging technologies. Offers a unique combination of technical proficiency and hands-on experience in leadership and event coordination, including managing esports initiatives and large-scale projects.</p>
+        </section>
+
+        <section id="skills">
+            <h2>Technical Skills</h2>
+            <h3>Languages</h3>
+            <p><span class="badge">Python</span> <span class="badge">Java</span> <span class="badge">C#</span> <span class="badge">C++</span> <span class="badge">JavaScript</span></p>
+            <br>
+            <h3>Mobile & Databases</h3>
+            <p><span class="badge">React Native</span> <span class="badge">Flutter</span> <span class="badge">DBMS</span> <span class="badge">SQL</span></p>
+        </section>
+
+        <section id="experience">
+            <h2>Experience</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Student Assistant</h3>
+                    <p><strong>Marketing Department</strong><br>April 2024 - June 2025</p>
+                    <p>Conducted outreach, managed merchandise inventory, and provided logistical support for university events.</p>
+                </div>
+                <div class="card">
+                    <h3>Government Intern</h3>
+                    <p><strong>SPES Program</strong><br>Summers 2022, 2023, 2024</p>
+                    <p>Performed demographic data encoding, field surveys, and handled financial record tracking using Excel.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="leadership">
+            <h2>Leadership & Governance</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>External Vice President</h3>
+                    <p><strong>CCIS Student Council (2024-2025)</strong></p>
+                    <p>Coordinated external university affairs and acted as the Esports Head Organizer managing large-scale tournaments.</p>
+                </div>
+                <div class="card">
+                    <h3>Board of Director</h3>
+                    <p><strong>CCIS Student Council (2023-2024)</strong></p>
+                    <p>Contributed to student welfare decisions and structured competitive departmental brackets.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="education">
+            <h2>Education</h2>
+            <p><strong>Bachelor of Science in Computer Science</strong><br>Malayan Colleges Laguna (2021 - Present)</p>
+            <br>
+            <p><strong>Senior High School - ICT</strong><br>ACTS Computer College (Graduated with High Honors, 2019 - 2021)</p>
+        </section>
+
+        <!-- Dedicated Document Section -->
+        <section id="documents">
+            <h2>Academic Credentials & Reports</h2>
+            <p>Click below to download or view the official PDF documents directly:</p>
+            <br>
+            <div style="display: flex; gap: 1rem;">
+                <a href="resume.pdf" class="btn" download>📥 Download Official Resume</a>
+                <a href="narrative-report.pdf" class="btn btn-alt" download>📥 Download Narrative Report</a>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Jerome Isaac D. Mendoza. Built for Professional Placement.</p>
+    </footer>
+
+</body>
+</html>

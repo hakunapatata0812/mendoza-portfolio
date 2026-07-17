@@ -46,7 +46,7 @@
         header {
             background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
             border-bottom: 1px solid var(--border-color);
-            padding: 6rem 2rem 5rem 2rem;
+            padding: 5rem 2rem;
             text-align: center;
             position: relative;
         }
@@ -59,6 +59,18 @@
             width: 100%;
             height: 2px;
             background: linear-gradient(90deg, transparent, var(--primary-glow), transparent);
+        }
+
+        /* Profile Image Styling */
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--primary-glow);
+            margin-bottom: 1.5rem;
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+            background-color: var(--bg-main); /* Fallback before image uploads */
         }
 
         header h1 {
@@ -314,6 +326,9 @@
 <body>
 
     <header>
+        <!-- Place your image file renamed to profile.jpg in your folder -->
+        <img src="profile.jpg" alt="Jerome Isaac D. Mendoza" class="profile-img">
+        
         <h1>Jerome Isaac D. Mendoza</h1>
         <p>Computer Science Student | Software & Mobile Developer</p>
         <div class="contact-info">
@@ -355,6 +370,16 @@
                 <span class="badge">DBMS</span>
                 <span class="badge">SQL</span>
             </div>
+
+            <h3 style="margin-bottom: 0.5rem; font-size: 0.95rem; text-transform: uppercase; color: var(--text-secondary); letter-spacing: 0.05em;">Data Science & Analytics</h3>
+            <div class="badge-group">
+                <span class="badge">Amazon Athena</span>
+                <span class="badge">Power BI</span>
+                <span class="badge">AWS Glue</span>
+                <span class="badge">Data Modeling</span>
+                <span class="badge">DAX Measures</span>
+                <span class="badge">Data Validation</span>
+            </div>
         </section>
 
         <!-- Featured Projects Section -->
@@ -387,8 +412,7 @@
                         <span class="badge">Machine Learning</span>
                         <span class="badge">XML Layouts</span>
                     </div>
-                    <!-- Direct Link to Google Drive -->
-                    <a href="https://drive.google.com/file/d/1zxXHPESBWz8sIZ_C2lQoohmOWUb6GjFa/view?usp=drive_link" class="btn" style="padding: 0.5rem 1.2rem; font-size: 0.85rem; width: 100%; margin-top: auto;" target="_blank">🚀 Open in Google Drive</a>
+                    <a href="YOUR_GOOGLE_DRIVE_LINK_HERE" class="btn" style="padding: 0.5rem 1.2rem; font-size: 0.85rem; width: 100%; margin-top: auto;" target="_blank">🚀 Open in Google Drive</a>
                 </div>
             </div>
         </section>
@@ -396,6 +420,24 @@
         <section id="experience">
             <h2>Experience</h2>
             <div class="grid">
+                <div class="card">
+                    <h3>Data Science & BI Intern</h3>
+                    <span class="card-meta"><strong>AF Payments Inc. (beep™)</strong> | May 2026 - July 2026</span>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 0.75rem;">
+                        Successfully rendered 480 hours in the Finance and Data Science department:
+                    </p>
+                    <ul style="color: var(--text-secondary); font-size: 0.9rem; margin-left: 1rem; margin-bottom: 1rem; list-style-type: disc;">
+                        <li style="margin-bottom: 0.35rem;">Constructed automated interactive Power BI dashboards integrating 34M+ transit transactions totaling ₱1.75B in system revenue.</li>
+                        <li style="margin-bottom: 0.35rem;">Developed optimized SQL Queries & CTEs using Amazon Athena to validate and structure complex transit datasets.</li>
+                        <li style="margin-bottom: 0.35rem;">Conducted strict data validation, pipeline contribution, and gained exposure to AWS Glue cloud services.</li>
+                    </ul>
+                    <div class="badge-group" style="margin-top: auto; margin-bottom: 0;">
+                        <span class="badge">SQL</span>
+                        <span class="badge">Amazon Athena</span>
+                        <span class="badge">Power BI</span>
+                        <span class="badge">AWS Glue</span>
+                    </div>
+                </div>
                 <div class="card">
                     <h3>Student Assistant</h3>
                     <span class="card-meta"><strong>Marketing Department</strong> | April 2024 - June 2025</span>
@@ -429,7 +471,7 @@
             <h2>Education</h2>
             <div class="education-item">
                 <h3 style="margin-bottom: 0.25rem;">Bachelor of Science in Computer Science</h3>
-                <p style="color: var(--text-secondary);">Malayan Colleges Laguna <span style="color: var(--primary-glow); margin-left: 0.5rem;">(2021 - Present)</span></p>
+                <p style="color: var(--text-secondary);">Mapúa Malayan Colleges Laguna <span style="color: var(--primary-glow); margin-left: 0.5rem;">(2021 - Present)</span></p>
             </div>
             <div class="education-item" style="margin-bottom: 0;">
                 <h3 style="margin-bottom: 0.25rem;">Senior High School - ICT</h3>

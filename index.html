@@ -6,135 +6,285 @@
     <title>Jerome Isaac D. Mendoza | Portfolio</title>
     <style>
         :root {
-            --primary: #1e293b;
-            --secondary: #3b82f6;
-            --text: #334155;
-            --light: #f8fafc;
+            --bg-main: #0f172a;
+            --bg-surface: #1e293b;
+            --primary-glow: #3b82f6;
+            --secondary-glow: #60a5fa;
             --accent: #2563eb;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --border-color: #334155;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         }
 
         body {
-            color: var(--text);
-            background-color: var(--light);
+            color: var(--text-primary);
+            background-color: var(--bg-main);
             line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Ambient background glow elements */
+        body::before {
+            content: "";
+            position: absolute;
+            top: -10%;
+            left: -10%;
+            width: 50vw;
+            height: 50vw;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, transparent 70%);
+            z-index: -1;
+            pointer-events: none;
         }
 
         header {
-            background: var(--primary);
-            color: white;
-            padding: 5rem 2rem;
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            border-bottom: 1px solid var(--border-color);
+            padding: 6rem 2rem 5rem 2rem;
             text-align: center;
+            position: relative;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary-glow), transparent);
         }
 
         header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: -0.05em;
+            margin-bottom: 0.75rem;
+            background: linear-gradient(to right, #ffffff, #93c5fd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         header p {
-            font-size: 1.2rem;
-            color: #94a3b8;
-            margin-bottom: 1.5rem;
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
         }
 
         .contact-info a {
-            color: var(--secondary);
+            color: var(--secondary-glow);
             text-decoration: none;
-            margin: 0 10px;
+            transition: color 0.2s;
+        }
+
+        .contact-info a:hover {
+            color: white;
+            text-decoration: underline;
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 1050px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 4rem 2rem;
         }
 
         section {
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
-            margin-bottom: 2rem;
+            background: var(--bg-surface);
+            padding: 2.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 2.5rem;
+            box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        section:hover {
+            border-color: #475569;
         }
 
         h2 {
-            color: var(--primary);
-            border-bottom: 2px solid var(--secondary);
-            padding-bottom: 0.5rem;
-            margin-bottom: 1.5rem;
+            color: white;
+            font-size: 1.75rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            padding-bottom: 0.75rem;
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--primary-glow);
+            border-radius: 2px;
+        }
+
+        h3 {
+            color: #f1f5f9;
+            font-size: 1.15rem;
+            margin-bottom: 0.75rem;
         }
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.75rem;
         }
 
         .card {
-            background: var(--light);
-            padding: 1.5rem;
-            border-radius: 6px;
-            border-left: 4px solid var(--secondary);
+            background: rgba(15, 23, 42, 0.4);
+            padding: 1.75rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
         }
 
-        .card h3 {
-            margin-bottom: 0.5rem;
-            color: var(--primary);
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: var(--primary-glow);
+            background: rgba(15, 23, 42, 0.6);
+            box-shadow: 0 10px 20px -10px rgba(59, 130, 246, 0.15);
+        }
+
+        .card p strong {
+            color: var(--secondary-glow);
+        }
+
+        .card-meta {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .badge-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
         }
 
         .badge {
-            display: inline-block;
-            background: #e2e8f0;
-            padding: 0.2rem 0.6rem;
-            border-radius: 4px;
+            background: rgba(59, 130, 246, 0.08);
+            color: #93c5fd;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            padding: 0.35rem 0.8rem;
+            border-radius: 6px;
             font-size: 0.85rem;
-            margin: 0.2rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            transition: all 0.2s;
         }
 
-        /* Call to Action Buttons for Documents */
+        .badge:hover {
+            background: rgba(59, 130, 246, 0.15);
+            border-color: var(--primary-glow);
+            color: white;
+        }
+
         .doc-buttons {
             display: flex;
             gap: 1rem;
             justify-content: center;
-            margin-top: 1rem;
+            margin-top: 2rem;
             flex-wrap: wrap;
         }
 
         .btn {
-            display: inline-block;
-            background: var(--secondary);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--accent);
             color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 5px;
+            padding: 0.8rem 2rem;
+            border-radius: 8px;
             text-decoration: none;
-            font-weight: bold;
-            transition: background 0.2s;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: 1px solid transparent;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .btn:hover {
-            background: var(--accent);
+            background: #1d4ed8;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.3);
         }
 
         .btn-alt {
-            background: #64748b;
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            box-shadow: none;
         }
 
         .btn-alt:hover {
-            background: #475569;
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--text-secondary);
+            box-shadow: none;
+        }
+
+        .document-box-layout {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        .education-item {
+            position: relative;
+            padding-left: 1.5rem;
+            border-left: 2px solid var(--border-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .education-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 6px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--primary-glow);
         }
 
         footer {
             text-align: center;
-            padding: 2rem;
-            color: #64748b;
-            font-size: 0.9rem;
+            padding: 3rem 2rem;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border-color);
+            background: rgba(15, 23, 42, 0.6);
+        }
+
+        @media (max-width: 640px) {
+            header h1 { font-size: 2.25rem; }
+            .container { padding: 2rem 1rem; }
+            section { padding: 1.5rem; }
         }
     </style>
 </head>
@@ -144,12 +294,13 @@
         <h1>Jerome Isaac D. Mendoza</h1>
         <p>Computer Science Student | Software & Mobile Developer</p>
         <div class="contact-info">
-            <a href="mailto:jidrmendozaa@gmail.com">jidrmendozaa@gmail.com</a> | 
-            <span>+63930-859-9775</span> | 
+            <a href="mailto:jidrmendozaa@gmail.com">jidrmendozaa@gmail.com</a>
+            <span>•</span>
+            <span>+63930-859-9775</span>
+            <span>•</span>
             <span>Los Baños, Laguna</span>
         </div>
         
-        <!-- Quick Access to Documents -->
         <div class="doc-buttons">
             <a href="resume.pdf" class="btn" target="_blank">📄 View Resume</a>
             <a href="narrative-report.pdf" class="btn btn-alt" target="_blank">📘 View Narrative Report</a>
@@ -160,16 +311,27 @@
         
         <section id="objective">
             <h2>Objective</h2>
-            <p>Dedicated Computer Science student seeking an internship opportunity to apply technical knowledge in software development, systems design, and emerging technologies. Offers a unique combination of technical proficiency and hands-on experience in leadership and event coordination, including managing esports initiatives and large-scale projects.</p>
+            <p style="color: var(--text-secondary); font-size: 1.05rem;">Dedicated Computer Science student seeking an internship opportunity to apply technical knowledge in software development, systems design, and emerging technologies. Offers a unique combination of technical proficiency and hands-on experience in leadership and event coordination, including managing esports initiatives and large-scale projects.</p>
         </section>
 
         <section id="skills">
             <h2>Technical Skills</h2>
-            <h3>Languages</h3>
-            <p><span class="badge">Python</span> <span class="badge">Java</span> <span class="badge">C#</span> <span class="badge">C++</span> <span class="badge">JavaScript</span></p>
-            <br>
-            <h3>Mobile & Databases</h3>
-            <p><span class="badge">React Native</span> <span class="badge">Flutter</span> <span class="badge">DBMS</span> <span class="badge">SQL</span></p>
+            <h3 style="margin-bottom: 0.5rem; font-size: 0.95rem; text-transform: uppercase; color: var(--text-secondary); letter-spacing: 0.05em;">Languages</h3>
+            <div class="badge-group">
+                <span class="badge">Python</span>
+                <span class="badge">Java</span>
+                <span class="badge">C#</span>
+                <span class="badge">C++</span>
+                <span class="badge">JavaScript</span>
+            </div>
+            
+            <h3 style="margin-bottom: 0.5rem; font-size: 0.95rem; text-transform: uppercase; color: var(--text-secondary); letter-spacing: 0.05em;">Mobile & Databases</h3>
+            <div class="badge-group">
+                <span class="badge">React Native</span>
+                <span class="badge">Flutter</span>
+                <span class="badge">DBMS</span>
+                <span class="badge">SQL</span>
+            </div>
         </section>
 
         <section id="experience">
@@ -177,13 +339,13 @@
             <div class="grid">
                 <div class="card">
                     <h3>Student Assistant</h3>
-                    <p><strong>Marketing Department</strong><br>April 2024 - June 2025</p>
-                    <p>Conducted outreach, managed merchandise inventory, and provided logistical support for university events.</p>
+                    <span class="card-meta"><strong>Marketing Department</strong> | April 2024 - June 2025</span>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem;">Conducted outreach, managed merchandise inventory, and provided logistical support for university events.</p>
                 </div>
                 <div class="card">
                     <h3>Government Intern</h3>
-                    <p><strong>SPES Program</strong><br>Summers 2022, 2023, 2024</p>
-                    <p>Performed demographic data encoding, field surveys, and handled financial record tracking using Excel.</p>
+                    <span class="card-meta"><strong>SPES Program</strong> | Summers 2022, 2023, 2024</span>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem;">Performed demographic data encoding, field surveys, and handled financial record tracking using Excel.</p>
                 </div>
             </div>
         </section>
@@ -193,30 +355,33 @@
             <div class="grid">
                 <div class="card">
                     <h3>External Vice President</h3>
-                    <p><strong>CCIS Student Council (2024-2025)</strong></p>
-                    <p>Coordinated external university affairs and acted as the Esports Head Organizer managing large-scale tournaments.</p>
+                    <span class="card-meta"><strong>CCIS Student Council</strong> | 2024 - 2025</span>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem;">Coordinated external university affairs and acted as the Esports Head Organizer managing large-scale tournaments.</p>
                 </div>
                 <div class="card">
                     <h3>Board of Director</h3>
-                    <p><strong>CCIS Student Council (2023-2024)</strong></p>
-                    <p>Contributed to student welfare decisions and structured competitive departmental brackets.</p>
+                    <span class="card-meta"><strong>CCIS Student Council</strong> | 2023 - 2024</span>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem;">Contributed to student welfare decisions and structured competitive departmental brackets.</p>
                 </div>
             </div>
         </section>
 
         <section id="education">
             <h2>Education</h2>
-            <p><strong>Bachelor of Science in Computer Science</strong><br>Malayan Colleges Laguna (2021 - Present)</p>
-            <br>
-            <p><strong>Senior High School - ICT</strong><br>ACTS Computer College (Graduated with High Honors, 2019 - 2021)</p>
+            <div class="education-item">
+                <h3 style="margin-bottom: 0.25rem;">Bachelor of Science in Computer Science</h3>
+                <p style="color: var(--text-secondary);">Malayan Colleges Laguna <span style="color: var(--primary-glow); margin-left: 0.5rem;">(2021 - Present)</span></p>
+            </div>
+            <div class="education-item" style="margin-bottom: 0;">
+                <h3 style="margin-bottom: 0.25rem;">Senior High School - ICT</h3>
+                <p style="color: var(--text-secondary);">ACTS Computer College <span style="color: var(--secondary-glow); margin-left: 0.5rem;">(Graduated with High Honors, 2019 - 2021)</span></p>
+            </div>
         </section>
 
-        <!-- Dedicated Document Section -->
-        <section id="documents">
+        <section id="documents" style="background: linear-gradient(135deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.7) 100%); border-color: rgba(59, 130, 246, 0.3);">
             <h2>Academic Credentials & Reports</h2>
-            <p>Click below to download or view the official PDF documents directly:</p>
-            <br>
-            <div style="display: flex; gap: 1rem;">
+            <p style="color: var(--text-secondary);">Access verification files directly. Download or view the official document paths instantly below:</p>
+            <div class="document-box-layout">
                 <a href="resume.pdf" class="btn" download>📥 Download Official Resume</a>
                 <a href="narrative-report.pdf" class="btn btn-alt" download>📥 Download Narrative Report</a>
             </div>

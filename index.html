@@ -396,12 +396,12 @@
         }
     </style>
 </head>
-<body>
+<body id="top">
 
     <!-- Sticky Header Navigation -->
     <nav>
         <div class="nav-container">
-            <a href="#" class="nav-logo">JM</a>
+            <a href="#top" class="nav-logo">JM</a>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
@@ -615,17 +615,30 @@
         <p>&copy; 2026 Jerome Isaac D. Mendoza. Built for Professional Placement.</p>
     </footer>
 
-    <!-- Prevents browser from restoring scroll position at the bottom -->
+    <!-- Script to ensure page resets to top on every refresh -->
     <script>
+        // 1. Turn off browser's automatic scroll position memory
         if ('scrollRestoration' in history) {
             history.scrollRestoration = 'manual';
         }
-        window.addEventListener('beforeunload', () => {
+
+        // 2. Strip hash fragments (e.g., #projects) from URL on refresh
+        if (window.location.hash) {
+            history.replaceState(null, null, window.location.pathname + window.location.search);
+        }
+
+        // 3. Force scroll to top across all lifecycle stages
+        window.scrollTo(0, 0);
+
+        document.addEventListener('DOMContentLoaded', () => {
             window.scrollTo(0, 0);
         });
-        window.onload = () => {
-            window.scrollTo(0, 0);
-        };
+
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                window.scrollTo(0, 0);
+            }, 0);
+        });
     </script>
 </body>
 </html>

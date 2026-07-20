@@ -6,21 +6,27 @@
     <title>Jerome Isaac D. Mendoza | Portfolio</title>
     <style>
         :root {
-            --bg-main: #0f172a;
-            --bg-surface: #1e293b;
+            --bg-main: #0b0f17;
+            --bg-surface: #131c2e;
+            --bg-card: #1a243b;
             --primary-glow: #3b82f6;
             --secondary-glow: #60a5fa;
-            --accent: #2563eb;
+            --accent-cyan: #38bdf8;
             --text-primary: #f8fafc;
             --text-secondary: #94a3b8;
-            --border-color: #334155;
+            --border-color: #24334d;
+            --border-hover: #3b82f6;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -33,112 +39,161 @@
         /* Ambient background glow elements */
         body::before {
             content: "";
-            position: absolute;
-            top: -10%;
+            position: fixed;
+            top: -20%;
             left: -10%;
             width: 50vw;
             height: 50vw;
-            background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.12) 0%, transparent 70%);
             z-index: -1;
             pointer-events: none;
         }
 
-        header {
-            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+        body::after {
+            content: "";
+            position: fixed;
+            bottom: -20%;
+            right: -10%;
+            width: 50vw;
+            height: 50vw;
+            background: radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, transparent 70%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Sticky Navigation Bar */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(11, 15, 23, 0.85);
+            backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border-color);
-            padding: 5rem 2rem;
+            padding: 0.8rem 2rem;
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 1.1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-glow);
+        }
+
+        header {
+            background: radial-gradient(circle at top center, #1e293b 0%, #0b0f17 100%);
+            border-bottom: 1px solid var(--border-color);
+            padding: 5rem 2rem 4rem;
             text-align: center;
             position: relative;
         }
 
-        header::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--primary-glow), transparent);
-        }
-
         /* Profile Image Styling */
         .profile-img {
-            width: 150px;
-            height: 150px;
+            width: 140px;
+            height: 140px;
             border-radius: 50%;
             object-fit: cover;
-            border: 4px solid var(--primary-glow);
+            border: 3px solid var(--primary-glow);
             margin-bottom: 1.5rem;
-            box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
-            background-color: var(--bg-main); /* Fallback before image uploads */
+            box-shadow: 0 0 30px rgba(59, 130, 246, 0.35);
+            background-color: var(--bg-surface);
         }
 
         header h1 {
-            font-size: 3rem;
+            font-size: 2.75rem;
             font-weight: 800;
-            letter-spacing: -0.05em;
-            margin-bottom: 0.75rem;
-            background: linear-gradient(to right, #ffffff, #93c5fd);
+            letter-spacing: -0.03em;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #ffffff 0%, #93c5fd 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         header p {
-            font-size: 1.25rem;
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-            font-weight: 400;
+            font-size: 1.15rem;
+            color: var(--accent-cyan);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
         }
 
         .contact-info {
             display: flex;
             justify-content: center;
-            gap: 1.5rem;
+            align-items: center;
+            gap: 1.25rem;
             flex-wrap: wrap;
             color: var(--text-secondary);
-            font-size: 0.95rem;
+            font-size: 0.92rem;
+            margin-bottom: 2rem;
         }
 
         .contact-info a {
-            color: var(--secondary-glow);
+            color: var(--text-primary);
             text-decoration: none;
             transition: color 0.2s;
         }
 
         .contact-info a:hover {
-            color: white;
-            text-decoration: underline;
+            color: var(--secondary-glow);
+        }
+
+        .dot-sep {
+            color: var(--border-color);
         }
 
         .container {
-            max-width: 1050px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 4rem 2rem;
+            padding: 3.5rem 1.5rem;
         }
 
         section {
             background: var(--bg-surface);
-            padding: 2.5rem;
-            border-radius: 12px;
+            padding: 2.25rem;
+            border-radius: 16px;
             border: 1px solid var(--border-color);
             margin-bottom: 2.5rem;
-            box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease, border-color 0.3s ease;
-        }
-
-        section:hover {
-            border-color: #475569;
+            box-shadow: 0 12px 32px -10px rgba(0, 0, 0, 0.5);
         }
 
         h2 {
             color: white;
-            font-size: 1.75rem;
+            font-size: 1.5rem;
             font-weight: 700;
             letter-spacing: -0.02em;
             padding-bottom: 0.75rem;
-            margin-bottom: 2rem;
+            margin-bottom: 1.75rem;
             position: relative;
-            display: inline-block;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         h2::after {
@@ -146,7 +201,7 @@
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 40px;
+            width: 36px;
             height: 3px;
             background: var(--primary-glow);
             border-radius: 2px;
@@ -154,36 +209,85 @@
 
         h3 {
             color: #f1f5f9;
-            font-size: 1.15rem;
-            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
         }
 
+        .section-label {
+            margin-bottom: 0.75rem;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            color: var(--accent-cyan);
+            letter-spacing: 0.08em;
+            font-weight: 600;
+        }
+
+        /* Clickable Badge Styling */
+        .badge-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .badge-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .badge-link {
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .badge {
+            background: rgba(59, 130, 246, 0.08);
+            color: #93c5fd;
+            border: 1px solid rgba(59, 130, 246, 0.25);
+            padding: 0.4rem 0.85rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .badge:hover {
+            background: rgba(59, 130, 246, 0.2);
+            border-color: var(--primary-glow);
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+        }
+
+        .badge-icon {
+            font-size: 0.75rem;
+            opacity: 0.7;
+        }
+
+        /* Cards Layout */
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.75rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
         }
 
         .card {
-            background: rgba(15, 23, 42, 0.4);
+            background: var(--bg-card);
             padding: 1.75rem;
-            border-radius: 8px;
+            border-radius: 12px;
             border: 1px solid var(--border-color);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
+            transition: all 0.25s ease;
             display: flex;
             flex-direction: column;
         }
 
         .card:hover {
             transform: translateY(-4px);
-            border-color: var(--primary-glow);
-            background: rgba(15, 23, 42, 0.6);
-            box-shadow: 0 10px 20px -10px rgba(59, 130, 246, 0.15);
-        }
-
-        .card p strong {
-            color: var(--secondary-glow);
+            border-color: var(--border-hover);
+            box-shadow: 0 12px 24px -10px rgba(59, 130, 246, 0.2);
         }
 
         .card-meta {
@@ -194,40 +298,16 @@
         }
 
         .card p {
+            color: var(--text-secondary);
+            font-size: 0.92rem;
             flex-grow: 1;
         }
 
-        .badge-group {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
-            margin-top: auto;
-        }
-
-        .badge {
-            background: rgba(59, 130, 246, 0.08);
-            color: #93c5fd;
-            border: 1px solid rgba(59, 130, 246, 0.2);
-            padding: 0.35rem 0.8rem;
-            border-radius: 6px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            letter-spacing: 0.02em;
-            transition: all 0.2s;
-        }
-
-        .badge:hover {
-            background: rgba(59, 130, 246, 0.15);
-            border-color: var(--primary-glow);
-            color: white;
-        }
-
+        /* Button Styling */
         .doc-buttons {
             display: flex;
             gap: 1rem;
             justify-content: center;
-            margin-top: 2rem;
             flex-wrap: wrap;
         }
 
@@ -235,22 +315,23 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            background: var(--accent);
+            gap: 0.5rem;
+            background: var(--primary-glow);
             color: white;
-            padding: 0.8rem 2rem;
+            padding: 0.75rem 1.75rem;
             border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             border: 1px solid transparent;
-            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
-            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 14px rgba(59, 130, 246, 0.25);
+            transition: all 0.2s ease;
         }
 
         .btn:hover {
-            background: #1d4ed8;
+            background: #2563eb;
             transform: translateY(-1px);
-            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.3);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.35);
         }
 
         .btn-alt {
@@ -263,18 +344,17 @@
         .btn-alt:hover {
             background: rgba(255, 255, 255, 0.05);
             border-color: var(--text-secondary);
-            box-shadow: none;
         }
 
         .project-link {
-            font-size: 0.85rem;
-            color: var(--secondary-glow);
+            font-size: 0.88rem;
+            color: var(--accent-cyan);
             text-decoration: none;
             font-weight: 600;
             display: inline-flex;
             align-items: center;
-            gap: 0.25rem;
-            margin-top: 0.5rem;
+            gap: 0.3rem;
+            margin-top: 1rem;
             transition: color 0.2s;
         }
 
@@ -282,18 +362,16 @@
             color: white;
         }
 
-        .document-box-layout {
-            display: flex;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-            margin-top: 1.5rem;
-        }
-
+        /* Timeline / Education Styling */
         .education-item {
             position: relative;
             padding-left: 1.5rem;
             border-left: 2px solid var(--border-color);
             margin-bottom: 1.5rem;
+        }
+
+        .education-item:last-child {
+            margin-bottom: 0;
         }
 
         .education-item::before {
@@ -305,19 +383,21 @@
             height: 10px;
             border-radius: 50%;
             background: var(--primary-glow);
+            box-shadow: 0 0 8px var(--primary-glow);
         }
 
         footer {
             text-align: center;
-            padding: 3rem 2rem;
+            padding: 2.5rem 2rem;
             color: var(--text-secondary);
             font-size: 0.85rem;
             border-top: 1px solid var(--border-color);
-            background: rgba(15, 23, 42, 0.6);
+            background: var(--bg-main);
         }
 
         @media (max-width: 640px) {
-            header h1 { font-size: 2.25rem; }
+            header h1 { font-size: 2.2rem; }
+            .nav-links { display: none; }
             .container { padding: 2rem 1rem; }
             section { padding: 1.5rem; }
         }
@@ -325,60 +405,109 @@
 </head>
 <body>
 
+    <!-- Sticky Header Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="nav-logo">JM</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#education">Education</a></li>
+            </ul>
+        </div>
+    </nav>
+
     <header>
-        <!-- Place your image file renamed to profile.jpg in your folder -->
         <img src="profile.jpeg" alt="Jerome Isaac D. Mendoza" class="profile-img">
         
         <h1>Jerome Isaac D. Mendoza</h1>
         <p>Computer Science Student | Software & Mobile Developer</p>
+        
         <div class="contact-info">
             <a href="mailto:jidrmendozaa@gmail.com">jidrmendozaa@gmail.com</a>
-            <span>•</span>
-            <span>+63930-859-9775</span>
-            <span>•</span>
+            <span class="dot-sep">•</span>
+            <span>+63 930-859-9775</span>
+            <span class="dot-sep">•</span>
             <span>Los Baños, Laguna</span>
         </div>
         
         <div class="doc-buttons">
             <a href="resume.pdf" class="btn" target="_blank">📄 View Resume</a>
-            <a href="narrative-report.pdf" class="btn btn-alt" target="_blank">📘 View Narrative Report</a>
+            <a href="narrative-report.pdf" class="btn btn-alt" target="_blank">📘 Narrative Report</a>
         </div>
     </header>
 
     <div class="container">
         
-        <section id="objective">
+        <!-- Objective Section -->
+        <section id="about">
             <h2>Objective</h2>
-            <p style="color: var(--text-secondary); font-size: 1.05rem;">Dedicated Computer Science student seeking an internship opportunity to apply technical knowledge in software development, systems design, and emerging technologies. Offers a unique combination of technical proficiency and hands-on experience in leadership and event coordination, including managing esports initiatives and large-scale projects.</p>
+            <p style="color: var(--text-secondary); font-size: 1.025rem;">
+                Dedicated Computer Science student seeking an internship opportunity to apply technical knowledge in software development, systems design, and emerging technologies. Offers a unique combination of technical proficiency and hands-on experience in leadership and event coordination, including managing esports initiatives and large-scale projects.
+            </p>
         </section>
 
+        <!-- Clickable Technical Skills Section -->
         <section id="skills">
             <h2>Technical Skills</h2>
-            <h3 style="margin-bottom: 0.5rem; font-size: 0.95rem; text-transform: uppercase; color: var(--text-secondary); letter-spacing: 0.05em;">Languages</h3>
+            
+            <p class="section-label">Languages</p>
             <div class="badge-group">
-                <span class="badge">Python</span>
-                <span class="badge">Java</span>
-                <span class="badge">C#</span>
-                <span class="badge">C++</span>
-                <span class="badge">JavaScript</span>
+                <a href="https://www.python.org/" target="_blank" class="badge-link">
+                    <span class="badge">Python <span class="badge-icon">↗</span></span>
+                </a>
+                <a href="https://dev.java/" target="_blank" class="badge-link">
+                    <span class="badge">Java <span class="badge-icon">↗</span></span>
+                </a>
+                <a href="https://learn.microsoft.com/en-us/dotnet/csharp/" target="_blank" class="badge-link">
+                    <span class="badge">C# <span class="badge-icon">↗</span></span>
+                </a>
+                <a href="https://isocpp.org/" target="_blank" class="badge-link">
+                    <span class="badge">C++ <span class="badge-icon">↗</span></span>
+                </a>
+                <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" class="badge-link">
+                    <span class="badge">JavaScript <span class="badge-icon">↗</span></span>
+                </a>
             </div>
             
-            <h3 style="margin-bottom: 0.5rem; font-size: 0.95rem; text-transform: uppercase; color: var(--text-secondary); letter-spacing: 0.05em;">Mobile & Databases</h3>
+            <p class="section-label">Mobile & Databases</p>
             <div class="badge-group">
-                <span class="badge">React Native</span>
-                <span class="badge">Flutter</span>
-                <span class="badge">DBMS</span>
-                <span class="badge">SQL</span>
+                <a href="https://reactnative.dev/" target="_blank" class="badge-link">
+                    <span class="badge">React Native <span class="badge-icon">↗</span></span>
+                </a>
+                <a href="https://flutter.dev/" target="_blank" class="badge-link">
+                    <span class="badge">Flutter <span class="badge-icon">↗</span></span>
+                </a>
+                <a href="https://en.wikipedia.org/wiki/Database" target="_blank" class="badge-link">
+                    <span class="badge">DBMS <span class="badge-icon">↗</span></span>
+                </a>
+                <a href="https://www.iso.org/standard/63555.html" target="_blank" class="badge-link">
+                    <span class="badge">SQL <span class="badge-icon">↗</span></span>
+                </a>
             </div>
 
-            <h3 style="margin-bottom: 0.5rem; font-size: 0.95rem; text-transform: uppercase; color: var(--text-secondary); letter-spacing: 0.05em;">Data Science & Analytics</h3>
+            <p class="section-label">Data Science & Analytics</p>
             <div class="badge-group">
-                <span class="badge">Amazon Athena</span>
-                <span class="badge">Power BI</span>
-                <span class="badge">AWS Glue</span>
-                <span class="badge">Data Modeling</span>
-                <span class="badge">DAX Measures</span>
-                <span class="badge">Data Validation</span>
+                <a href="https://aws.amazon.com/athena/" target="_blank" class="badge-link">
+                    <span class="badge">Amazon Athena <span class="badge-icon">↗</span></span>
+                </a>
+                <a href="https://powerbi.microsoft.com/" target="_blank" class="badge-link">
+                    <span class="badge">Power BI <span class="badge-icon">↗</span></span>
+                </a>
+                <a href="https://aws.amazon.com/glue/" target="_blank" class="badge-link">
+                    <span class="badge">AWS Glue <span class="badge-icon">↗</span></span>
+                </a>
+                <a href="https://learn.microsoft.com/en-us/power-bi/transform-model/desktop-modeling-view" target="_blank" class="badge-link">
+                    <span class="badge">Data Modeling <span class="badge-icon">↗</span></span>
+                </a>
+                <a href="https://learn.microsoft.com/en-us/dax/" target="_blank" class="badge-link">
+                    <span class="badge">DAX Measures <span class="badge-icon">↗</span></span>
+                </a>
+                <a href="https://en.wikipedia.org/wiki/Data_validation" target="_blank" class="badge-link">
+                    <span class="badge">Data Validation <span class="badge-icon">↗</span></span>
+                </a>
             </div>
         </section>
 
@@ -388,101 +517,100 @@
             <div class="grid">
                 <div class="card">
                     <h3>FSL Learning Website</h3>
-                    <span class="card-meta"><strong>Corpus Platform with CNN & LSTM Models</strong></span>
-                    <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.25rem;">
+                    <span class="card-meta">Corpus Platform with CNN & LSTM Models</span>
+                    <p>
                         Designed a Filipino Sign Language (FSL) learning environment utilizing a community-driven FSL corpus combined with CNN and LSTM deep learning architectures for sign recognition.
                     </p>
-                    <div class="badge-group">
+                    <div class="badge-group" style="margin-top: 1rem;">
                         <span class="badge">Python</span>
                         <span class="badge">CNN & LSTM</span>
                         <span class="badge">Deep Learning</span>
-                        <span class="badge">Web Development</span>
                     </div>
                     <a href="https://github.com/hakunapatata012" class="project-link" target="_blank">View on GitHub &rarr;</a>
                 </div>
+
                 <div class="card">
                     <h3>Fitness Buddy</h3>
-                    <span class="card-meta"><strong>Cardiovascular Training & Health Risk Mitigation</strong></span>
-                    <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.25rem;">
+                    <span class="card-meta">Cardiovascular Training & Health Risk Mitigation</span>
+                    <p>
                         Developed an adaptive machine learning-powered mobile application designed to offer personalized cardiovascular training regimens and lower cardiovascular disease risks.
                     </p>
-                    <div class="badge-group">
+                    <div class="badge-group" style="margin-top: 1rem;">
                         <span class="badge">Kotlin</span>
                         <span class="badge">Android Studio</span>
                         <span class="badge">Machine Learning</span>
-                        <span class="badge">XML Layouts</span>
                     </div>
-                    <a href="YOUR_GOOGLE_DRIVE_LINK_HERE" class="btn" style="padding: 0.5rem 1.2rem; font-size: 0.85rem; width: 100%; margin-top: auto;" target="_blank">🚀 Open in Google Drive</a>
+                    <a href="YOUR_GOOGLE_DRIVE_LINK_HERE" class="project-link" target="_blank">Open Drive Folder &rarr;</a>
                 </div>
             </div>
         </section>
 
+        <!-- Experience Section -->
         <section id="experience">
             <h2>Experience</h2>
             <div class="grid">
                 <div class="card">
                     <h3>Data Science & BI Intern</h3>
-                    <span class="card-meta"><strong>AF Payments Inc. (beep™)</strong> | May 2026 - July 2026</span>
-                    <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 0.75rem;">
-                        Successfully rendered 480 hours in the Finance and Data Science department:
+                    <span class="card-meta"><strong style="color: var(--secondary-glow);">AF Payments Inc. (beep™)</strong> | May 2026 - July 2026</span>
+                    <p style="margin-bottom: 0.75rem;">
+                        Rendered 480 hours in the Finance and Data Science department:
                     </p>
-                    <ul style="color: var(--text-secondary); font-size: 0.9rem; margin-left: 1rem; margin-bottom: 1rem; list-style-type: disc;">
-                        <li style="margin-bottom: 0.35rem;">Constructed automated interactive Power BI dashboards integrating 34M+ transit transactions totaling ₱1.75B in system revenue.</li>
-                        <li style="margin-bottom: 0.35rem;">Developed optimized SQL Queries & CTEs using Amazon Athena to validate and structure complex transit datasets.</li>
-                        <li style="margin-bottom: 0.35rem;">Conducted strict data validation, pipeline contribution, and gained exposure to AWS Glue cloud services.</li>
+                    <ul style="color: var(--text-secondary); font-size: 0.88rem; margin-left: 1.25rem; margin-bottom: 1rem;">
+                        <li>Constructed automated interactive Power BI dashboards integrating 34M+ transit transactions totaling ₱1.75B in system revenue.</li>
+                        <li>Developed optimized SQL Queries & CTEs using Amazon Athena to validate complex transit datasets.</li>
+                        <li>Conducted strict data validation, pipeline contribution, and gained exposure to AWS Glue cloud services.</li>
                     </ul>
-                    <div class="badge-group" style="margin-top: auto; margin-bottom: 0;">
-                        <span class="badge">SQL</span>
-                        <span class="badge">Amazon Athena</span>
-                        <span class="badge">Power BI</span>
-                        <span class="badge">AWS Glue</span>
-                    </div>
                 </div>
+
                 <div class="card">
                     <h3>Student Assistant</h3>
-                    <span class="card-meta"><strong>Marketing Department</strong> | April 2024 - June 2025</span>
-                    <p style="color: var(--text-secondary); font-size: 0.95rem;">Conducted outreach, managed merchandise inventory, and provided logistical support for university events.</p>
+                    <span class="card-meta"><strong style="color: var(--secondary-glow);">Marketing Department</strong> | April 2024 - June 2025</span>
+                    <p>Conducted outreach, managed merchandise inventory, and provided logistical support for university events.</p>
                 </div>
+
                 <div class="card">
                     <h3>Government Intern</h3>
-                    <span class="card-meta"><strong>SPES Program</strong> | Summers 2022, 2023, 2024</span>
-                    <p style="color: var(--text-secondary); font-size: 0.95rem;">Performed demographic data encoding, field surveys, and handled financial record tracking using Excel.</p>
+                    <span class="card-meta"><strong style="color: var(--secondary-glow);">SPES Program</strong> | Summers 2022, 2023, 2024</span>
+                    <p>Performed demographic data encoding, field surveys, and handled financial record tracking using Excel.</p>
                 </div>
             </div>
         </section>
 
+        <!-- Leadership Section -->
         <section id="leadership">
             <h2>Leadership & Governance</h2>
             <div class="grid">
                 <div class="card">
                     <h3>External Vice President</h3>
-                    <span class="card-meta"><strong>CCIS Student Council</strong> | 2024 - 2025</span>
-                    <p style="color: var(--text-secondary); font-size: 0.95rem;">Coordinated external university affairs and acted as the Esports Head Organizer managing large-scale tournaments.</p>
+                    <span class="card-meta"><strong style="color: var(--secondary-glow);">CCIS Student Council</strong> | 2024 - 2025</span>
+                    <p>Coordinated external university affairs and acted as the Esports Head Organizer managing large-scale tournaments.</p>
                 </div>
                 <div class="card">
                     <h3>Board of Director</h3>
-                    <span class="card-meta"><strong>CCIS Student Council</strong> | 2023 - 2024</span>
-                    <p style="color: var(--text-secondary); font-size: 0.95rem;">Contributed to student welfare decisions and structured competitive departmental brackets.</p>
+                    <span class="card-meta"><strong style="color: var(--secondary-glow);">CCIS Student Council</strong> | 2023 - 2024</span>
+                    <p>Contributed to student welfare decisions and structured competitive departmental brackets.</p>
                 </div>
             </div>
         </section>
 
+        <!-- Education Section -->
         <section id="education">
             <h2>Education</h2>
             <div class="education-item">
-                <h3 style="margin-bottom: 0.25rem;">Bachelor of Science in Computer Science</h3>
-                <p style="color: var(--text-secondary);">Mapúa Malayan Colleges Laguna <span style="color: var(--primary-glow); margin-left: 0.5rem;">(2021 - Present)</span></p>
+                <h3>Bachelor of Science in Computer Science</h3>
+                <p style="color: var(--text-secondary);">Mapúa Malayan Colleges Laguna <span style="color: var(--accent-cyan); margin-left: 0.5rem;">(2021 - Present)</span></p>
             </div>
-            <div class="education-item" style="margin-bottom: 0;">
-                <h3 style="margin-bottom: 0.25rem;">Senior High School - ICT</h3>
+            <div class="education-item">
+                <h3>Senior High School - ICT</h3>
                 <p style="color: var(--text-secondary);">ACTS Computer College <span style="color: var(--secondary-glow); margin-left: 0.5rem;">(Graduated with High Honors, 2019 - 2021)</span></p>
             </div>
         </section>
 
-        <section id="documents" style="background: linear-gradient(135deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.7) 100%); border-color: rgba(59, 130, 246, 0.3);">
+        <!-- Verification Documents Download -->
+        <section id="documents" style="background: radial-gradient(circle at top, rgba(30, 41, 59, 0.8) 0%, rgba(19, 28, 46, 0.8) 100%); border-color: rgba(59, 130, 246, 0.4);">
             <h2>Academic Credentials & Reports</h2>
-            <p style="color: var(--text-secondary);">Access verification files directly. Download or view the official document paths instantly below:</p>
-            <div class="document-box-layout">
+            <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Access official verification files directly. Download or view the official document paths instantly below:</p>
+            <div class="doc-buttons" style="justify-content: flex-start;">
                 <a href="resume.pdf" class="btn" download>📥 Download Official Resume</a>
                 <a href="narrative-report.pdf" class="btn btn-alt" download>📥 Download Narrative Report</a>
             </div>

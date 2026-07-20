@@ -615,5 +615,17 @@
         <p>&copy; 2026 Jerome Isaac D. Mendoza. Built for Professional Placement.</p>
     </footer>
 
+    <!-- Prevents browser from restoring scroll position at the bottom -->
+    <script>
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+        window.addEventListener('beforeunload', () => {
+            window.scrollTo(0, 0);
+        });
+        window.onload = () => {
+            window.scrollTo(0, 0);
+        };
+    </script>
 </body>
 </html>
